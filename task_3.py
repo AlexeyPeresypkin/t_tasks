@@ -13,6 +13,7 @@ from functools import reduce
 
 
 def get_uniq_intervals(intervals):
+    """Находим уникальные непересекающиеся интервалы"""
     intervals = tuple(sorted(intervals, key=(lambda x: (x.start, x.end))))
     uniq_intervals = []
     start = intervals[0].start
@@ -32,6 +33,7 @@ def get_uniq_intervals(intervals):
 
 
 def intersect(range1, range2):
+    """Возвращает пересечение двух отрезков если оно есть"""
     new_range = Range(
         max(range1.start, range2.start),
         min(range1.end, range2.end)
@@ -48,6 +50,7 @@ def intersect_two(ranges1, ranges2):
 
 
 def intersect_all(ranges):
+    """Находим пересечение всех отрезков"""
     return reduce(intersect_two, ranges)
 
 

@@ -11,6 +11,7 @@ import requests
 
 
 def get_data(url):
+    """По ссылке получаем первую букву животного и складываем в кортеж, возвращаем кортеж и следующую страницу"""
     page = requests.get(url)
     soup = BeautifulSoup(page.text, "html.parser")
     div = soup.find('div', {'id': 'mw-pages'})
